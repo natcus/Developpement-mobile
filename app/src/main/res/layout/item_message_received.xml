@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="start|bottom"
+    android:paddingStart="8dp"
+    android:paddingEnd="64dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp">
+
+    <!-- Avatar circulaire de l'expéditeur -->
+    <ImageView
+        android:id="@+id/imgSenderAvatarReceived"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_myplaces"
+        android:background="@drawable/bg_story_ring"
+        android:padding="2dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Nom de l'expéditeur (groupes) -->
+        <TextView
+            android:id="@+id/textSenderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:visibility="gone"
+            android:layout_marginBottom="3dp"
+            android:layout_marginStart="4dp"
+            android:text="Nom de l'expéditeur"/>
+
+        <!-- Bulle principale avec MaterialCardView -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/bubble_received"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_message_received"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <!-- Reply Layout -->
+                <LinearLayout
+                    android:id="@+id/layoutReplyReceived"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="120dp"
+                    android:orientation="horizontal"
+                    android:background="@color/surface_variant"
+                    android:padding="8dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="8dp">
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/primary"/>
+                    <TextView
+                        android:id="@+id/textReplyReceived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="Message cité..."/>
+                </LinearLayout>
+
+                <!-- Image Message -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgMessageReceived"
+                    android:layout_width="220dp"
+                    android:layout_height="260dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:layout_marginBottom="6dp"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"/>
+
+                <!-- File Message -->
+                <LinearLayout
+                    android:id="@+id/layoutFileReceived"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical"
+                    android:background="@color/surface_variant"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@android:drawable/ic_menu_save"
+                        app:tint="@color/primary"/>
+
+                    <TextView
+                        android:id="@+id/textFileReceived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginStart="8dp"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="document.pdf"/>
+                </LinearLayout>
+
+                <!-- Audio Message -->
+                <LinearLayout
+                    android:id="@+id/layoutAudioReceived"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnPlayAudioReceived"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@android:drawable/ic_media_play"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/primary"/>
+
+                    <SeekBar
+                        android:id="@+id/seekbarAudioReceived"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="0dp"
+                        android:thumbTint="@color/primary"
+                        android:progressTint="@color/primary"
+                        android:progressBackgroundTint="@color/divider"/>
+
+                    <TextView
+                        android:id="@+id/textAudioDurationReceived"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:layout_marginStart="4dp"
+                        android:text="0:00"/>
+                </LinearLayout>
+
+                <!-- Text Message -->
+                <TextView
+                    android:id="@+id/textMessageReceived"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bubble_received_text"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="2dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Message reçu"/>
+
+                <!-- Footer (Time) -->
+                <TextView
+                    android:id="@+id/textTimeReceived"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/text_secondary"
+                    android:alpha="0.7"
+                    android:textSize="10sp"
+                    android:text="12:00"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Reactions -->
+        <TextView
+            android:id="@+id/textReactionsReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_reactions"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="12sp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            android:elevation="4dp"
+            android:textColor="@color/text_primary"
+            android:text="❤️"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="end"
+    android:paddingStart="64dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp">
+
+    <!-- Bulle principale avec MaterialCardView pour l'ombre et le dégradé -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/bubble_sent_start"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="3dp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_message_sent"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <!-- Reply Layout -->
+            <LinearLayout
+                android:id="@+id/layoutReplySent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="120dp"
+                android:orientation="horizontal"
+                android:background="#22FFFFFF"
+                android:padding="8dp"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"/>
+                <TextView
+                    android:id="@+id/textReplySent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:alpha="0.8"
+                    android:text="Message cité..."/>
+            </LinearLayout>
+
+            <!-- Image Message -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgMessageSent"
+                android:layout_width="220dp"
+                android:layout_height="260dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginBottom="6dp"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"/>
+
+            <!-- File Message -->
+            <LinearLayout
+                android:id="@+id/layoutFileSent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:background="#22FFFFFF"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@android:drawable/ic_menu_save"
+                    app:tint="@color/white"/>
+
+                <TextView
+                    android:id="@+id/textFileSent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="8dp"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="document.pdf"/>
+            </LinearLayout>
+
+            <!-- Audio Message -->
+            <LinearLayout
+                android:id="@+id/layoutAudioSent"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/btnPlayAudioSent"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@android:drawable/ic_media_play"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white"/>
+
+                <SeekBar
+                    android:id="@+id/seekbarAudioSent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:thumbTint="@color/white"
+                    android:progressTint="@color/white"
+                    android:progressBackgroundTint="#44FFFFFF"/>
+
+                <TextView
+                    android:id="@+id/textAudioDurationSent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:layout_marginStart="4dp"
+                    android:alpha="0.8"
+                    android:text="0:00"/>
+            </LinearLayout>
+
+            <!-- Text Message -->
+            <TextView
+                android:id="@+id/textMessageSent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:lineSpacingExtra="2dp"
+                android:fontFamily="sans-serif"
+                android:text="Message envoyé"/>
+
+            <!-- Footer (Time + Status) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/textTimeSent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:alpha="0.7"
+                    android:textSize="10sp"
+                    android:text="12:00"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/textReadReceipt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:alpha="0.9"
+                    android:textSize="12sp"
+                    android:text="✓"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Reactions -->
+    <TextView
+        android:id="@+id/textReactionsSent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_reactions"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textSize="12sp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        android:elevation="4dp"
+        android:textColor="@color/text_primary"
+        android:text="❤️"/>
+
+</LinearLayout>
